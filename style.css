@@ -60,8 +60,22 @@ button {
 }
 
 @media (max-width: 480px) {
+    .goToPlace {
+        margin-left: 35px;
+        /* margin-right: auto; */
+        top: 5px;
+        width: 70%;
+        position: relative;
+        z-index: 10;
+    }
     .goToPlace .text-field {
-        width: 100%;
-        display: block;	
+        width: 47%;
+        /* left: 7px; */
+        position: relative;
+        height: 15px;
+    }    
+    .goToPlace .button {
+        width: 22%;
+        height: 19px;
     }
 }
