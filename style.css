@@ -59,5 +59,8 @@ button {
 }
 
 @media (max-width: 480px) {
-    /* To Do */
+    .goToPlace .text-field {
+        width: 100%;
+        display: block;	
+    }
 }
