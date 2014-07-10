@@ -62,7 +62,7 @@ button {
 @media (max-width: 480px) {
     .goToPlace {
         margin-left: 35px;
-        /* margin-right: auto; */
+        text-align: left;
         top: 5px;
         width: 70%;
         position: relative;
