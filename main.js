@@ -46,7 +46,7 @@ function initialize() {
     }
 
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(locationFound);
+        navigator.geolocation.getCurrentPosition(locationFound, defaultLocation);
     } else {
         defaultLocation();
     }
