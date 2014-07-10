@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Share Location Perfectly and Simply :: MyCoordinate.XYZ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Nuhil Mehdy">
+    <meta name="description" content="Get OR find your current location on map and share with friends in a simpler way!"/>
+    
+    <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places,visualization&sensor=false"></script>
+
+    <script src="main.js"></script>
+    <link href="style.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="ico/favicon.ico">
+  </head>
+  
+  <body>
+    <div class="goToPlace">
+      <form id="goToForm" action="#" onsubmit="showAddress(this.address.value); return false;">
+        <input type="text" class="text-field" placeholder="Type like: Uttara, Dhaka, Bangladesh" name="address">
+        <button type="submit" class="button">Go There!</button>
+      </form>
+    </div>
+
+    <div id="googlemaps">The Postal Address Finder is powered by Google Maps. Loading..</div>
+    
+  </body>
+</html>
