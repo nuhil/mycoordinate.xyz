@@ -1,6 +1,6 @@
 $(document).on( "click", "#shareLink", function() {
-    $('#shareLink').css({'opacity' : '0.2', 'text-decoration' : 'none', 'color' : 'grey'});
-    $('#shareLink').html('Wait! Shortening URL ...');
+    $('#shareLink').css({'text-decoration' : 'none', 'color' : 'grey'});
+    $('#shareLink').html('Please Wait! Shortening URL ...');
 
     $.getJSON(
         "http://api.bitly.com/v3/shorten?callback=?", 
@@ -8,7 +8,7 @@ $(document).on( "click", "#shareLink", function() {
             "format": "json",
             "apiKey": "R_9ce0b9fbeda9fb0807740890dded98a2",
             "login": "o_2g4m22rs5c",
-            "longUrl": window.location.href
+            "longUrl": window.location.href+"@shared"
         },
         function(response)
         {
@@ -40,7 +40,17 @@ function initialize() {
     if (friendsCoordinates != "") {
         var hashlocation = friendsCoordinates.split(",");
         if (hashlocation.length == 2) {
-            showMap(hashlocation[0].substr(1), hashlocation[1], true);
+            var lat = hashlocation[0].substr(1);
+            if(hashlocation[1].indexOf('@') === -1) {
+                var lng = hashlocation[1];
+                var shared = false;   
+            } else {
+               var getLng = hashlocation[1].split("@");
+               var lng = getLng[0]
+               var shared = true;
+            }
+
+            showMap(lat, lng, true, shared);
             return;
         }
     }
@@ -67,14 +77,15 @@ function showAddress(val) {
     });
 }
 
-function geocode(position) {
+function geocode(position, shared) {
     geocoder.geocode({
         latLng: position
     }, function(responses) {
         var html = '';
         window.location.hash = '#' + marker.getPosition().lat() + "," + marker.getPosition().lng();
         if (responses && responses.length > 0) {
-            html += '<strong style="color:green;">You are near! </strong>' + responses[0].formatted_address + '<br/>';
+            var title = (shared == true) ? "You are shared this point which is near " : "You are near ";
+            html += '<strong style="color:green;">'+title+'</strong>' + responses[0].formatted_address + '<br/>';
             html += '<span><a id="shareLink" href="javascript:void(0);">Share Location</a><span>';
         } else {
             html += '<strong style="color:red;">Nothing known near you! </strong><br/>';
@@ -96,7 +107,7 @@ function defaultLocation() {
     showMap(23.761692871261147, 90.37844838320314);
 }
 
-function showMap(lat, lng, hideinfo) {
+function showMap(lat, lng, hideinfo, shared) {
     latLng = new google.maps.LatLng(lat, lng);
 
     map.setCenter(latLng);
@@ -113,7 +124,7 @@ function showMap(lat, lng, hideinfo) {
     });
 
     if (hideinfo) {
-        geocode(latLng);
+        geocode(latLng, shared);
     } else {
         infoWindow.open(map, marker);
     }
