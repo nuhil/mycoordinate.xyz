@@ -84,7 +84,7 @@ function geocode(position, shared) {
         var html = '';
         window.location.hash = '#' + marker.getPosition().lat() + "," + marker.getPosition().lng();
         if (responses && responses.length > 0) {
-            var title = (shared == true) ? "You are shared this point which is near " : "You are near ";
+            var title = (shared == true) ? "You are shared this point which is near " : "Your pointed location is near ";
             html += '<strong style="color:green;">'+title+'</strong>' + responses[0].formatted_address + '<br/>';
             html += '<span><a id="shareLink" href="javascript:void(0);">Share Location</a><span>';
         } else {
