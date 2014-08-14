@@ -98,7 +98,7 @@ function geocode(position, shared) {
         }
 
         map.panTo(marker.getPosition());
-        var infoWindowHeight = ($( window ).width() > 400)? 'style="min-height:50px"': 'style="min-height:80px"';
+        var infoWindowHeight = ($( window ).width() > 400)? 'style="min-height:60px"': 'style="min-height:80px"';
         infoWindow.setContent("<div id='infoBox' "+infoWindowHeight+">" + html + "</div>");
 
         infoWindow.open(map, marker);
