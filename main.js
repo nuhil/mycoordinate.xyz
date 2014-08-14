@@ -1,3 +1,4 @@
+
 $(document).on( "click", "#shareLink", function() {
     $('#shareLink').css({'text-decoration' : 'none', 'color' : 'grey'});
     $('#shareLink').html('Please Wait! Shortening URL ...');
@@ -28,6 +29,7 @@ var geocoder = new google.maps.Geocoder();
 // coordinates
 function initialize() {
     var myOptions = {
+        disableDefaultUI: true,
         zoom: 15,
         panControl: false,
         mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -84,7 +86,7 @@ function geocode(position, shared) {
         var html = '';
         window.location.hash = '#' + marker.getPosition().lat() + "," + marker.getPosition().lng();
         if (responses && responses.length > 0) {
-            var title = (shared == true) ? "You are shared this point which is near " : "Your pointed location is near ";
+            var title = (shared == true) ? "Someone shared this point with you, which is near " : "Your pointed location is near ";
             html += '<strong style="color:green;">'+title+'</strong>' + responses[0].formatted_address + '<br/>';
             html += '<span><a id="shareLink" href="javascript:void(0);">Share Location</a><span>';
         } else {
@@ -108,6 +110,8 @@ function defaultLocation() {
 }
 
 function showMap(lat, lng, hideinfo, shared) {
+    var windowWidth = $( window ).width();
+
     latLng = new google.maps.LatLng(lat, lng);
 
     map.setCenter(latLng);
@@ -120,7 +124,8 @@ function showMap(lat, lng, hideinfo, shared) {
     });
 
     infoWindow = new google.maps.InfoWindow({
-        content: '<div id="infoBox"><strong style="color: green;">We think you are here!</strong> Though you can <strong>click and drag</strong> the red marker anywhere to pin point your location perfectly and then share!</div>'
+        content: '<div id="infoBox"><strong style="color: green;">We think you are here!</strong> Though you can <strong>click and drag</strong> the red marker anywhere to pin point your location perfectly and then share!</div>',
+        maxWidth: windowWidth-100
     });
 
     if (hideinfo) {

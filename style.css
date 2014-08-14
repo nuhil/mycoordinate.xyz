@@ -18,7 +18,8 @@ input {
 button {
     border: 1px solid #999;
     height: 24px;
-    background-color: #ffffff;
+    background-color: #eee;
+    cursor: pointer;
     
     -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
     -moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
@@ -33,10 +34,8 @@ button {
 }
 
 .goToPlace {
-    margin-left: auto;
-    margin-right: auto;
-    top: 4px;
-    width: 50%;
+    margin: 0px auto;
+    width: 80%;
     position: relative;
     text-align: center;
     z-index: 10; 
@@ -58,25 +57,4 @@ button {
     -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
     -moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);    
-}
-
-@media (max-width: 480px) {
-    .goToPlace {
-        margin-left: 35px;
-        text-align: left;
-        top: 5px;
-        width: 70%;
-        position: relative;
-        z-index: 10;
-    }
-    .goToPlace .text-field {
-        width: 47%;
-        /* left: 7px; */
-        position: relative;
-        height: 15px;
-    }    
-    .goToPlace .button {
-        width: 21%;
-        height: 19px;
-    }
 }
