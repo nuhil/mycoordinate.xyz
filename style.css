@@ -7,6 +7,7 @@ html, body {
 
 input {
     border: 1px solid #999;
+    font-size: 12px;
     height: 20px;
     padding-left: 5px;
     
@@ -16,6 +17,7 @@ input {
 }
 
 button {
+    font-size: 12px;
     border: 1px solid #999;
     height: 24px;
     background-color: #eee;
@@ -52,6 +54,7 @@ button {
 #infoBox {
     font-size: 1.3em;
     text-align: center;
+    min-height: 80px;
     height: auto;
 
     -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);

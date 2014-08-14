@@ -1,4 +1,3 @@
-
 $(document).on( "click", "#shareLink", function() {
     $('#shareLink').css({'text-decoration' : 'none', 'color' : 'grey'});
     $('#shareLink').html('Please Wait! Shortening URL ...');
@@ -13,9 +12,13 @@ $(document).on( "click", "#shareLink", function() {
         },
         function(response)
         {
-            $('#shareLink').parent().html('<a href="'+response.data.url+'" target="_blank">'+response.data.url+'</a>');
+            $('#shareLink').parent().html('<input size="25" id="copy" type="text" value="'+response.data.url+'"/>');
         }
     );
+});
+
+$(document).on("click", "#copy", function() {
+            $(this).select();
 });
 
 // Initialise the google map just after loadin the DOM
@@ -95,7 +98,9 @@ function geocode(position, shared) {
         }
 
         map.panTo(marker.getPosition());
-        infoWindow.setContent("<div id='infoBox'>" + html + "</div>");
+        var infoWindowHeight = ($( window ).width() > 400)? 'style="min-height:50px"': 'style="min-height:80px"';
+        infoWindow.setContent("<div id='infoBox' "+infoWindowHeight+">" + html + "</div>");
+
         infoWindow.open(map, marker);
     });
 }
