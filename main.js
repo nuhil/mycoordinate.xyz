@@ -3,7 +3,7 @@ $(document).on( "click", "#shareLink", function() {
     $('#shareLink').html('Please Wait! Shortening URL ...');
 
     $.getJSON(
-        "http://api.bitly.com/v3/shorten?callback=?", 
+        "https://api.bitly.com/v3/shorten?callback=?", 
         { 
             "format": "json",
             "apiKey": "R_9ce0b9fbeda9fb0807740890dded98a2",
