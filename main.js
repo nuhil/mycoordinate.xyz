@@ -129,7 +129,7 @@ function showMap(lat, lng, hideinfo, shared) {
     });
 
     infoWindow = new google.maps.InfoWindow({
-        content: '<div id="infoBox"><strong style="color: green;">We think you are here!</strong> Though you can <strong>click and drag</strong> the red marker anywhere to pin point your location perfectly and then share!</div>',
+        content: '<div id="infoBox"><strong style="color: green;">We think you are here!</strong> Though you can <strong>click and drag</strong> the red marker anywhere to pin point your location perfectly and then share! <br/><strong style="color:red;">Please Move the Red Pointer to have a Share Link</strong></div>',
         maxWidth: windowWidth-100
     });
 
