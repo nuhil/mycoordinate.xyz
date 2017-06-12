@@ -5,7 +5,7 @@ $(document).on( "click", "#shareLink", function() {
     $.getJSON(
         "https://api-ssl.bitly.com/v3/shorten?", 
         { 
-            "access_token": "R_9ce0b9fbeda9fb0807740890dded98a2",
+            "access_token": "9a144eb484900047224f28a3bfac092a0a73d27c",
             "longUrl": window.location.href+"@shared"
         },
         function(response)
